@@ -1,43 +1,22 @@
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
 import Menu from './components/Menu';
 import DriftPage from './components/DriftPage';
 import ForzaPage from './components/ForzaPage';
 import HomePage from './components/HomePage';
 import TimeAttackPage from './components/TimeAttackPage';
+import { Routes, Route } from "react-router-dom";
 
-const router = createBrowserRouter([
-  {
-    // path: "",
-    errorElement: <h1>404</h1>,
-    Component: Menu,
-    children: [
-      {
-        path: '/',
-        Component: HomePage
-      },
-      {
-        path: 'drift',
-        Component: DriftPage
-      },
-      {
-        path: 'timeattack',
-        Component: TimeAttackPage
-      },
-      {
-        path: 'forza',
-        Component: ForzaPage
-      },
-    ]
-  }
-]);
 
 export default function App() {
   return (
-    <>
-      <RouterProvider router={router} />
-    </> 
+    <div>
+      <Routes>
+        <Route path="/" element={<Menu />}>
+          <Route index element={<HomePage />} />
+          <Route path="drift" element={<DriftPage />} />
+          <Route path="forza" element={<ForzaPage />} />
+          <Route path="timeattack" element={<TimeAttackPage />} />
+        </Route>
+      </Routes>
+    </div>
   );
 }

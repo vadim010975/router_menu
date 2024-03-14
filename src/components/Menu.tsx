@@ -1,7 +1,6 @@
-import { FC, PropsWithChildren } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 
-const Menu: FC<PropsWithChildren> = ({ children }) => {
+const Menu = () => {
   return (
     <>
       <nav className='menu'>
@@ -11,7 +10,6 @@ const Menu: FC<PropsWithChildren> = ({ children }) => {
         <NavLink to='/forza' className='menu__item'>FORZA KARTING</NavLink>
       </nav>
       <Outlet />
-      { children }
     </>
 
   );
